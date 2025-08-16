@@ -1,0 +1,33 @@
+sequenceDiagram
+    participant Client
+    participant Orchestrator
+    participant BookingService
+    participant PaymentService
+    participant TicketService
+
+    Client->>Orchestrator: Purchase Ticket Request
+    Orchestrator->>BookingService: Reserve Seat
+    BookingService-->>Orchestrator: Seat Reserved
+    Orchestrator->>PaymentService: Process Payment
+    PaymentService-->>Orchestrator: Payment Processed
+    Orchestrator->>TicketService: Generate Ticket
+    TicketService-->>Orchestrator: Ticket Generated
+    Orchestrator-->>Client: Ticket & Confirmation
+
+    alt Reservation Failed
+        BookingService-->>Orchestrator: Error
+        Orchestrator-->>Client: Reservation Error
+    end
+
+    alt Payment Failed
+        PaymentService-->>Orchestrator: Error
+        Orchestrator->>BookingService: Release Seat
+        Orchestrator-->>Client: Payment Error
+    end
+
+    alt Ticket Generation Failed
+        TicketService-->>Orchestrator: Error
+        Orchestrator->>PaymentService: Initiate Refund
+        Orchestrator->>BookingService: Release Seat
+        Orchestrator-->>Client: Ticket Generation Error
+    end
