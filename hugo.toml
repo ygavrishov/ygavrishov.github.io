@@ -1,4 +1,4 @@
-baseURL = 'https://ygavrishov.github.io/yg-notes/'
+baseURL = "https://yg-notes.tech/"
 languageCode = 'ru-ru'
 title = 'Заметки о технологиях'
 theme = "hugo-clarity"
