@@ -1,0 +1,4 @@
+baseURL = 'https://example.org/'
+languageCode = 'ru-ru'
+title = 'Заметки о технологиях'
+theme = "hugo-clarity"
