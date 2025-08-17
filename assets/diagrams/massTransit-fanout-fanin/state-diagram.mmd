@@ -1,0 +1,16 @@
+graph TD
+    A[Start] --> B{Fan-Out}
+
+    B --> C1[Booking Service]
+    B --> C2[Payment Service]
+    B --> C3[Ticket Service]
+
+    C1 --> D[Fan-In]
+    C2 --> D
+    C3 --> D
+
+    D --> E[All Successful?]
+    E -->|Yes| F[Complete Process]
+    E -->|No| G[Compensate Successful Steps]
+    F --> H[End]
+    G --> H
