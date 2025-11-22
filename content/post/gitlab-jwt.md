@@ -1,5 +1,5 @@
 ---
-title: "GitLab: Генерация JWT токена в pipeline"
+title: "GitLab: Генерация JWT токена в GitLab pipeline"
 date: 2025-11-22
 draft: false
 tags: ["GitLab"]
