@@ -2,3 +2,15 @@ baseURL = "https://yg-notes.tech/"
 languageCode = 'ru-ru'
 title = 'Заметки о технологиях'
 theme = "hugo-clarity"
+
+[[menu.social]]
+  name = "GitHub"
+  url = "https://github.com/ygavrishov"
+
+[[menu.social]]
+  name = "LinkedIn"
+  url = "https://www.linkedin.com/in/yuriy-gavrishov-082b28113/"
+
+[[menu.social]]
+  name = "Telegram"
+  url = "https://t.me/yg_notes"
