@@ -36,28 +36,8 @@ GitLab подписывает свои JWT токены при помощи пр
 
 ## Схема взаимодействия
 Схематично использования JWT токена выглядит так:
-```mermaid
-sequenceDiagram
-    participant G as GitLab Server
-    participant E as External System
-    participant K as GitLab Public Keys Endpoint
 
-    G->>G: Generate JWT token with claims
-
-    G->>+E: API Request with JWT token<br/>Authorization: Bearer <jwt_token>
-    
-    E->>+K: GET /oauth/discovery/keys
-    K-->>-E: Return JWKS (JSON Web Key Set)
-    
-    E->>E: 1. Validate JWT token signature
-    E->>E: 1. Validate JWT token claims
-    
-    alt Token is valid
-        E-->>G: 200 OK + Requested Data
-    else Token is invalid
-        E-->>G: 401 Unauthorized
-    end
-```
+{{< figure src="/images/diagrams/gitlab-jwt/sequence-diagram.svg" width="600" >}}
 
 ## Как можно использовать
 Есть следующие варианты использования такой конструкции:
